@@ -6,12 +6,16 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import mobile.page.App;
 import mobile.page.BasePage;
+import org.aspectj.util.FileUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class XueQiu extends BasePage {
@@ -51,14 +55,18 @@ public class XueQiu extends BasePage {
     }
 
     /**
-     * 屏幕滑动
+     * 屏幕滑动并且截图
      * @throws InterruptedException
      */
     @Test
-    public void testSwipe() throws InterruptedException {
+    public void testSwipe() throws InterruptedException, IOException {
 
-      for(int i=0;i<20;i++){
+      for(int i=0;i<5;i++){
           scroll(0.8, 0.8,0.4,0.4);
+          FileUtil.copyFile(
+                  driver.getScreenshotAs(OutputType.FILE).getCanonicalFile(),
+                  new File(i+".png")
+          );
           System.out.println("滚动"+i+"次");
 
       }
