@@ -11,6 +11,8 @@ public class BasePage {
 
     public static AndroidDriver driver;
 
+
+
     public static  WebElement findElement(By by){
         try {
             return  driver.findElement(by);
@@ -28,11 +30,10 @@ public class BasePage {
             handAlert();
             driver.findElement(by).click();
         }
-
     }
 
     //处理alert框 TODO 不需要判断所有的alert都存在
-    private static void handAlert() {
+    public static void handAlert() {
         List<By> alterBoxs = new ArrayList<By>();
         alterBoxs.add(By.id("com.xueqiu.android:id/image_cancel"));
         // alterBoxs.add(By.id("dddd"));
@@ -45,5 +46,5 @@ public class BasePage {
             }
         });
     }
-
+   // LogEntries logEntries = driver.manage().logs().get("driver");
 }
