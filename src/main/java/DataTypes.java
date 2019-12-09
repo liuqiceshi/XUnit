@@ -1,7 +1,7 @@
 /**
  * @Author: liuqi
  * @Description: java基础练习
- * @Date: Create in 22:00 06/12/29
+ * @Date: Create in 22:00 2019/12/06
  */
 public class DataTypes {
     /**
