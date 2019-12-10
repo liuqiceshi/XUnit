@@ -10,6 +10,7 @@ public class Operators {
      */
 
     public static void main(String[] args){
+        //算数运算 + 三目运算
         int a=20;
         int b=19;
         int d=a+b;
@@ -47,6 +48,17 @@ public class Operators {
         System.out.println(g=f++);//3
         System.out.println(f=f++);//4
         System.out.println(f);//4
+
+        //关系运算
+        int liuqi1=1;
+        int liuqi2=2;
+        System.out.println(liuqi1==liuqi2);
+        System.out.println(liuqi1!=liuqi2);
+        System.out.println(liuqi1 < liuqi2);
+
+        //逻辑运算符 && || ！
+        System.out.println(liuqi1==liuqi2 && liuqi1!=liuqi2 );
+        System.out.println(liuqi1==liuqi2 || liuqi1!=liuqi2 );
 
     }
 
