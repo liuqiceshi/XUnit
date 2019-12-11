@@ -1,3 +1,5 @@
+package study;
+
 /**
  * @Author: liuqi
  * @Description: java基础练习

@@ -1,3 +1,5 @@
+package study;
+
 import static java.lang.System.*;
 
 public class StringStudy {
@@ -42,6 +44,19 @@ public class StringStudy {
         //忽略前导空白和尾部空白 trim
         out.println(str5.trim());
 
+        //StringBuffer速度慢 线程安全  StringBuilder速度快 线程不安全
+        StringBuffer stringBuffer=new StringBuffer();
+        out.println(stringBuffer.length());
+        stringBuffer.insert(0,1);
+        out.println(stringBuffer.toString());
+        out.println(stringBuffer.length());
+        stringBuffer.insert(0,2);
+        out.println(stringBuffer.toString());
+        stringBuffer.append(3);
+        out.println(stringBuffer.toString());
+        //反转
+        out.println(stringBuffer.reverse());
+        out.println(stringBuffer.length());
 
     }
 
