@@ -3,7 +3,7 @@ package study;
 /**
  * @Author: liuqi
  * @Description: java基础练习
- * @Date: Create in 20:00 2019/12/08
+ * @Date: Create in  2019/12/08
  */
 public class BaseGrammar {
     /**
@@ -34,5 +34,9 @@ public class BaseGrammar {
      * 2、类变量（静态变量）
      * 3、成员变量（非静态变量）
      */
+    public static void main(String[] args){
+
+    }
+
 
 }
