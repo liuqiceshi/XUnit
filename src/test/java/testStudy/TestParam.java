@@ -1,3 +1,5 @@
+package testStudy;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -5,6 +7,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
+//参数化
 @RunWith(Parameterized.class)
 public class TestParam {
     @Parameterized.Parameters
@@ -20,6 +23,7 @@ public class TestParam {
     public void testDemo(){
         int actual=10;
         int expection=9;
+
        // assertThat("demo",actual,equals(expection));
     }
 }

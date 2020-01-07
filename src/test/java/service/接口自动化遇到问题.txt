@@ -1,0 +1,9 @@
+一、
+{
+    "errcode": 48002,
+    "errmsg": "api forbidden, hint: [1578286446_54_fa152ccc64821285fd5ae516d090a010], from ip: 101.254.182.38, more info at https://open.work.weixin.qq.com/devtool/query?e=48002"
+}
+
+解决办法：管理工具——>通讯录同步——>权限，选择（API编辑通讯录）就可以了
+
+二、
