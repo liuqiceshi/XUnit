@@ -22,22 +22,27 @@ public class Department {
 
 
     //部门id
-    public   int parentid=4;
+    public   int parentid=39;
+
     //获取部门列表
     static String departListPath="/department/list";
     //创建部门路径
     static  String createDepartPath="/department/create";
+    //删除部门路径
+    static String deleteDepartPath="/department/delete";
 
 
 
     //根据部门id获取部门列表
-    public Response list(int parentid){
+    public  Response list(int parentid){
        return given()
                 .queryParam("access_token", Work.getInstance().getToken())
                 .queryParam("id",parentid)
-                .when().log().all()
+                .when()
+               .log().all()
                 .get(baseUrl+departListPath)
-                .then().log().all()
+                .then()
+               .log().all()
                 .body("errcode",equalTo(0))
                 .body("errmsg",equalTo("ok"))
                 .extract().response();
@@ -45,7 +50,7 @@ public class Department {
     //给某部门创建子部门
     public Response create(String name,int parentid){
         HashMap<String,Object> data=new HashMap<>();
-        data.put("name",name+System.currentTimeMillis());
+        data.put("name",name);
         data.put("parentid",parentid);
         return given()
                 .queryParam("access_token",Work.getInstance().getToken())
@@ -64,8 +69,21 @@ public class Department {
     }
 
 
-    public Response delete(int parentid){
-        return null;
+    public Response delete(int id){
+       return given()
+                .queryParam("access_token",Work.getInstance().getToken())
+                .queryParam("id",id)
+                .when().log().all()
+                .get(baseUrl+deleteDepartPath)
+                .then().log().all()
+                .body("errcode",equalTo(0))
+                .body("errmsg",equalTo("deleted"))
+                .extract().response();
+
 
     }
+
+   /* public static void main(String[] args){
+        System.out.println("list:"+Department.list(30));
+    }*/
 }
