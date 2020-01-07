@@ -75,16 +75,13 @@ public class TestWork {
     public void departList(){
         given()
                 .queryParam("access_token",access_token)
-                .queryParam("id",parentid)
+                .queryParam("id",30)
         .when().log().all()
                 .get(baseUrl+departListPath)
                 .then().log().all()
                 .body("errcode",equalTo(0))
                 .body("errmsg",equalTo("ok"));
-
-
     }
-
     @Test
     public void delete(){
         departList();
@@ -96,8 +93,7 @@ public class TestWork {
                 .then().log().all()
                 .body("errcode",equalTo(0))
                 .body("errmsg",equalTo("deleted"));
-        departList();
-
+                departList();
     }
 
 }
