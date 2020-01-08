@@ -11,9 +11,18 @@ import static org.hamcrest.Matchers.equalTo;
  */
 public class Work {
     //公共地址
-    static  String baseUrl="https://qyapi.weixin.qq.com/cgi-bin";
-    static String corpid="wwba4073edf8ccf28d";
-    static String corpsecret="MyNy688YygBDO39LP7H95E-Cqp-Z3_AVs5sR0d4fdwA";
+   public static  String baseUrl="https://qyapi.weixin.qq.com/cgi-bin";
+   public static String corpid="wwba4073edf8ccf28d";
+   public static String corpsecret="MyNy688YygBDO39LP7H95E-Cqp-Z3_AVs5sR0d4fdwA";
+
+   //标签列表路径
+    public static String tagsListPath="/tag/list";
+    //创建标签路径
+    public  static String tagsCreatePath="/tag/create";
+
+    //删除标签路径
+    public static String tagsDeletePath="/tag/delete";
+
     //access_token
       String access_token;
     //获取access_token路径
