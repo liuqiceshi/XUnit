@@ -27,10 +27,14 @@ public class DepartmentTest {
          * 2、用list方法根据parentid通过findAll查询出所有子部门ids
          * 3、调用删除方法根据ids进行删除子部门
          */
-        ArrayList<Integer> ids = department.list(department.parentid).then().extract().body().path("department.findAll{d->d.parentid=="+department.parentid+"}.id");
+        ArrayList<Integer> ids = department.list(department.parentid)
+                .then()
+                .extract()
+                .body()
+                .path("department.findAll{d->d.parentid=="+department.parentid+"}.id");
+
         System.out.println("ids删除之前数组大小===================:"+ids);
         ids.forEach(id->department.delete(id));
-        System.out.println("ids删除之后数组大小===================:"+ids);
 
     }
 
@@ -42,7 +46,6 @@ public class DepartmentTest {
     @DisplayName("create创建")
     @Test()
     public void create(){
-
       String name="六七测试组";
         //创建部门
         department.create(name,department.parentid)
@@ -51,9 +54,9 @@ public class DepartmentTest {
                     .body("errmsg",equalTo("created"));
 
       // find 或者findAll断言hasSize
-     department.list(department.parentid).then().body("department.findAll{d->d.name=='"+name+"'}.id",hasSize(1));
-
-
+     department.list(department.parentid)
+             .then()
+             .body("department.findAll{d->d.name=='"+name+"'}.id",hasSize(1));
 
     }
 

@@ -20,7 +20,6 @@ public class Department {
     static String corpid="wwba4073edf8ccf28d";
     static String corpsecret="MyNy688YygBDO39LP7H95E-Cqp-Z3_AVs5sR0d4fdwA";
 
-
     //部门id
     public   int parentid=39;
 
@@ -67,8 +66,7 @@ public class Department {
     public Response create(String name){
         return create(name,parentid);
     }
-
-
+    //删除部门
     public Response delete(int id){
        return given()
                 .queryParam("access_token",Work.getInstance().getToken())
