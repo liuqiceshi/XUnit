@@ -19,9 +19,16 @@ public class Work {
     public static String tagsListPath="/tag/list";
     //创建标签路径
     public  static String tagsCreatePath="/tag/create";
-
     //删除标签路径
     public static String tagsDeletePath="/tag/delete";
+    //获取用户列表路径
+    public static String userGetPath="/user/get";
+    //获取用户更新路径
+    public  static String userUpdatePath="/user/update";
+    //创建用户路径
+    public static String userCreatePath="/user/create";
+
+
 
     //access_token
       String access_token;

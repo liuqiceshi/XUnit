@@ -1,0 +1,33 @@
+{
+  "errcode": 0,
+  "errmsg": "ok",
+  "userid": "{{userid}}",
+  "name": "{{name}}",
+  "department": [
+    36
+  ],
+  "position": "",
+  "mobile": "{{mobile}}",
+  "gender": "0",
+  "email": "",
+  "avatar": "",
+  "status": 4,
+  "isleader": 0,
+  "extattr": {
+    "attrs": [
+
+    ]
+  },
+  "telephone": "",
+  "enable": 1,
+  "hide_mobile": 0,
+  "order": [
+    0
+  ],
+  "qr_code": "https://open.work.weixin.qq.com/wwopen/userQRCode?vcode=vcd4356ce23f574023",
+  "alias": "",
+  "is_leader_in_dept": [
+    0
+  ],
+  "thumb_avatar": ""
+}
