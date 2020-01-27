@@ -6,7 +6,8 @@ import service.user.api.Users;
 
 import java.util.HashMap;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.not;
 
 /**
  * @Author liuqi
@@ -14,7 +15,7 @@ import static org.hamcrest.Matchers.*;
  * @Version 1.0
  * @Description:
  */
-public class UsersTest {
+public class UserApi {
 
     //用户列表
     @Test

@@ -26,13 +26,17 @@ public class TemplateTest {
         data.put("userid","userid"+System.currentTimeMillis());
         data.put("name","liuqi"+System.currentTimeMillis());
 
+        System.out.println("writer前");
         Writer writer = new OutputStreamWriter(System.out);
+        System.out.println("writer后");
         MustacheFactory mf = new DefaultMustacheFactory();
         //Mustache mustache = mf.compile(new StringReader("{{name}}, {{feature.description}}!"), "example");
-//        /Users/liuqi/360yunpan/workspace/XUnit/src/main/resources/template/user.json
-        Mustache mustache = mf.compile(this.getClass().getResource("/template/user.json").getPath());
+//        Mustache mustache = mf.compile(this.getClass().getResource("/template/user.json").getPath());
+        Mustache mustache = mf.compile(this.getClass().getResource("/service/user/api/createUser.json").getPath());
         mustache.execute(writer, data);
+        System.out.println("flush前");
         writer.flush();
-        System.out.println(writer.toString());
+        System.out.println("flush后");
+        System.out.println("输出："+writer.toString());
     }
 }
