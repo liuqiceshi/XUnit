@@ -27,6 +27,9 @@ public class Work {
     public  static String userUpdatePath="/user/update";
     //创建用户路径
     public static String userCreatePath="/user/create";
+    //删除用户路径
+    public static String userDeletePath="/user/delete";
+
 
 
 
