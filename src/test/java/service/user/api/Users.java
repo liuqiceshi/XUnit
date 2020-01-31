@@ -1,15 +1,12 @@
 package service.user.api;
 
-import com.github.mustachejava.DefaultMustacheFactory;
-import com.github.mustachejava.Mustache;
-import com.github.mustachejava.MustacheFactory;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import service.Work;
+import until.TemplateTest;
 
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
@@ -22,6 +19,7 @@ import static org.hamcrest.Matchers.equalTo;
  * @Description:
  */
 public class Users {
+    public TemplateTest templateTest=new TemplateTest();
     //用户列表
     public Response getUseList(String userid) {
         return given()
@@ -59,9 +57,9 @@ public class Users {
                 .then().log().all()
                 .extract().response();
     }
-    //克隆-模板
+    //克隆-数据模板
     public Response clone( HashMap<String, Object> data) {
-        String body=template("/service/user/api/createUser.json",data);
+        String body=templateTest.template("/service/user/api/createUser.json",data);
 
         return given()
                 .queryParam("access_token",Work.getInstance().getToken())
@@ -71,25 +69,7 @@ public class Users {
                 .then().log().all().extract().response();
     }
 
-
-    //模板
-    public  String template(String path,HashMap<String,Object> data)  {
-        Writer writer = new StringWriter();
-        MustacheFactory mf = new DefaultMustacheFactory();
-        Mustache mustache = mf.compile(this.getClass().getResource(path).getPath());
-        mustache.execute(writer, data);
-
-        try {
-           // System.out.println("flush前");
-            writer.flush();
-           // System.out.println("flush后");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return writer.toString();
-
-    }
-
+    //删除单个用户
     public Response delete(String userid) {
         return given()
                 .queryParam("access_token", Work.getInstance().getToken())
@@ -100,5 +80,42 @@ public class Users {
                 .body("errcode",equalTo(0))
                 .body("errmsg",equalTo("deleted"))
                 .extract().response();
+    }
+
+
+    //获取部门成员
+    public Response simplelist( HashMap<String, Object> data) {
+
+        String body=templateTest.template("/service/user/api/simplelist.json",data);
+        //转化为map类型
+        JSONObject jsonObject = JSON.parseObject(body);
+        return given()
+                .queryParam("access_token",Work.getInstance().getToken())
+                .queryParams(jsonObject)
+                .when().log().all()
+                .post(Work.baseUrl+Work.simplelistPath)
+                .then().log().all().extract().response();
+    }
+    //根据部门id获取成员
+    public Response simplelist( int department_id) {
+        return given()
+                .queryParam("access_token",Work.getInstance().getToken())
+                .queryParam("department_id",department_id)
+                .when().log().all()
+                .post(Work.baseUrl+Work.simplelistPath)
+                .then().log().all().extract().response();
+    }
+
+
+   // 批量删除成员
+    public Response batchdelete(HashMap<String,Object> data) {
+
+        return given()
+                 .queryParam("access_token",Work.getInstance().getToken())
+                 .body(data)
+                 .when().log().all()
+                 .post(Work.baseUrl+Work.batchdeletePath)
+                 .then().log().all().extract().response();
+
     }
 }
