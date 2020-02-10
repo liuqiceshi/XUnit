@@ -83,9 +83,18 @@ public class 集合 {
         for (String valueMap:map.values()){
             System.out.println("valueMap的值:"+valueMap);
         }
+        //lamba表达式输出key和value的值
         map.forEach((k, v) -> {
             System.out.println(k + ":" + v);
         });
+        //通过entrySet获取key和value的值
+        Set<Map.Entry<Integer, String>> entries=map.entrySet();
+        for(Map.Entry<Integer,String> entry:entries){
+            System.out.println("key值："+entry.getKey()+"value值："+entry.getValue());
+
+        }
+
+
         System.out.println("map:"+map);
         System.out.println("map中是否包含zhangsan:"+map.containsValue("zhangsan"));
         System.out.println("找出2的内容:"+map.get(2));
