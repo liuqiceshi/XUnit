@@ -1,0 +1,25 @@
+{
+  "userid": "{{userid}}",
+  "name": "{{name}}",
+  "alias": "诗词大会",
+  "mobile": "{{mobile}}",
+  "department": [2],
+  "order":[],
+  "position": "",
+  "gender": "",
+  "email": "{{email}}@qq.com",
+  "is_leader_in_dept": [],
+  "enable":1,
+  "avatar_mediaid": "",
+  "telephone": "13141322817",
+  "address": "北京市朝阳区温特莱中心",
+  "extattr": {
+    "attrs": []
+  },
+  "to_invite": true,
+  "external_position": "高级测试经理",
+  "external_profile": {
+    "external_corp_name": "",
+    "external_attr": []
+  }
+}

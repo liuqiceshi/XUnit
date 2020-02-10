@@ -1,11 +1,7 @@
 {
-  "errcode": 0,
-  "errmsg": "ok",
   "userid": "{{userid}}",
   "name": "{{name}}",
-  "department": [
-    36
-  ],
+  "department": [36],
   "position": "",
   "mobile": "{{mobile}}",
   "gender": "0",
@@ -26,8 +22,6 @@
   ],
   "qr_code": "https://open.work.weixin.qq.com/wwopen/userQRCode?vcode=vcd4356ce23f574023",
   "alias": "",
-  "is_leader_in_dept": [
-    0
-  ],
+  "is_leader_in_dept": [],
   "thumb_avatar": ""
 }

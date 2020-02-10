@@ -29,9 +29,10 @@ public class Work {
     public static String userCreatePath="/user/create";
     //删除用户路径
     public static String userDeletePath="/user/delete";
-
-
-
+    //获取部门成员
+    public static String simplelistPath="/user/simplelist";
+    //批量删除成员
+    public static String batchdeletePath="/user/batchdelete";
 
     //access_token
       String access_token;
